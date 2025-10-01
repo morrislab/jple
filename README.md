@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/1063742209.svg)](https://doi.org/10.5281/zenodo.17246612)
+
 # JPLE: Joint Protein-Ligand Embedding
 JPLE is a Python package for modeling protein-nucleic acid interactions using 
 peptide k-mer and nucleic acid k-mer representations. It supports **training**,
