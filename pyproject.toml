@@ -25,6 +25,9 @@ classifiers = [
     'Programming Language :: Python :: 3',
 ]
 
+[project.optional-dependencies]
+dev = ["tox"]
+
 [project.urls]
 Repository = 'https://github.com/morrislab/jple.git'
 Repository_original = 'https://github.com/LXsasse/RBPbinding'
