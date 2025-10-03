@@ -6,12 +6,14 @@ build-backend = 'setuptools.build_meta'
 name = 'jple'
 version = '1.0.0'
 dependencies = [
-    'logomaker==0.8.7',
-    'matplotlib',
-    'numpy==1.24.4',
-    'pandas==2.0.3',
-    'pyhmmer==0.11.1',
-    'scipy==1.10.1',
+    'logomaker==0.8.*',
+    'matplotlib==3.*',
+    'pandas==2.*',
+    'pyhmmer==0.11.*',
+    'scipy==1.10.*; python_version<"3.11"',
+    'scipy==1.16.*; python_version>="3.11"',
+    'numpy==1.24.*; python_version<"3.11"',
+    'numpy==2.3.*; python_version>="3.11"',
 ]
 requires-python = '>=3.8'
 description = 'Run Joint Protein-Ligand Embedding (JPLE).'
@@ -23,6 +25,9 @@ classifiers = [
     'Programming Language :: Python :: 3',
 ]
 
+[project.optional-dependencies]
+dev = ["tox"]
+
 [project.urls]
 Repository = 'https://github.com/morrislab/jple.git'
 Repository_original = 'https://github.com/LXsasse/RBPbinding'
@@ -33,3 +38,10 @@ jple = 'jple.cli:main_cli'
 
 [tool.setuptools]
 packages = ['jple']
+
+[tool.tox]
+requires = ["tox>=4"]
+env_list = ["3.8", "3.9", "3.10", "3.11", "3.12", "3.13"]
+
+[tool.tox.env_run_base]
+commands = [["jple", "--help"]]

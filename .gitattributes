@@ -1,0 +1,7 @@
+# ref: https://git-scm.com/docs/gitattributes
+# see also: https://docs.github.com/en/get-started/git-basics/configuring-git-to-handle-line-endings
+* text=auto
+
+*.zip binary
+*.png binary
+*.jpg binary
