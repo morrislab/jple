@@ -1,0 +1,33 @@
+name: Python Matrix Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: Test on Python ${{ matrix.py }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        py: ["3.8", "3.9", "3.10", "3.11", "3.12", "3.13"]
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.py }}
+        cache: pip
+
+    - name: Install JPLE and its dependencies
+      run:  pip install .
+
+    - name: Make sure 'jple --help' works
+      run: jple --help
